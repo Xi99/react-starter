@@ -1,11 +1,11 @@
 import React from 'react';
 import './Search.css';
 
-const Search = ({ handleChange }) => (
+const Search = ({ handleChange, handleSubmit }) => (
     <div className="search-container">
         <div className="search-in">
             <input className="search-input" type="text" placeholder="Search..." onChange={handleChange} />
-            <button className="submit-btn">
+            <button onClick={handleSubmit} className="submit-btn">
                 Go!
             </button>
         </div>

@@ -11,17 +11,23 @@ class App extends React.Component {
 
     this.state = {
       text: '',
-      moviesInfo: moviesInfo
+      moviesInfo: moviesInfo,
+      searchTitles: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   };
 
   handleChange(e) {
     this.setState({ text: e.target.value })
-    //console.log(text)
+
   }
 
+  handleSubmit() {
+    let filteredMovies = moviesInfo.filter(movie => movie.title === this.state.text)
+    this.setState({ moviesInfo: filteredMovies })
+  }
   render() {
     return (
       <div className="container">
@@ -32,12 +38,14 @@ class App extends React.Component {
         <div className="search-bar">
           <Search
             handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
           />
         </div>
 
         <div className="movies-list">
           <MoviesList
             moviesInfo={this.state.moviesInfo}
+            text={this.state.text}
           />
         </div>
       </div>
