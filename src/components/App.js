@@ -1,6 +1,6 @@
 import React from 'react';
 import MoviesList from './MovieList/MoviesList.jsx';
-// import moviesInfo from '../../moviesInfo.js';
+import moviesInfo from '../moviesInfo.js';
 import './styles.css';
 import Search from './Search/Search.jsx';
 
@@ -8,10 +8,19 @@ import Search from './Search/Search.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    var state = {
 
+    this.state = {
+      text: '',
+      moviesInfo: moviesInfo
     };
+
+    this.handleChange = this.handleChange.bind(this);
   };
+
+  handleChange(e) {
+    this.setState({ text: e.target.value })
+    //console.log(text)
+  }
 
   render() {
     return (
@@ -21,11 +30,15 @@ class App extends React.Component {
         </div>
 
         <div className="search-bar">
-          <Search />
+          <Search
+            handleChange={this.handleChange}
+          />
         </div>
 
         <div className="movies-list">
-          <MoviesList />
+          <MoviesList
+            moviesInfo={this.state.moviesInfo}
+          />
         </div>
       </div>
     );

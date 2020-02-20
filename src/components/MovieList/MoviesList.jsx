@@ -1,9 +1,8 @@
 import React from 'react';
 import Movie from '../Movie/Movie.jsx';
 import './MoviesList.css';
-import moviesInfo from '../../moviesInfo.js';
 
-const MoviesList = () => (
+const MoviesList = ({ moviesInfo }) => (
     <div className="movie-list">
         {moviesInfo.map((movies, i) => (
             <Movie
