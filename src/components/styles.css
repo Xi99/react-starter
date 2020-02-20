@@ -16,7 +16,7 @@
 
 .search-bar {
     background-color: white;
-    margin-left: ;
+    /* margin-left: ; */
 }
 
 .movies-list {
@@ -24,4 +24,13 @@
     margin-left: 200px;
     margin-top: 40px;
     margin-right: 2500px;
+}
+
+.errorMessage {
+    color: white;
+    background-color: red;
+    font-size: 50px;
+    width: 400px;
+   
+
 }

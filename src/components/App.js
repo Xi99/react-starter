@@ -12,7 +12,8 @@ class App extends React.Component {
     this.state = {
       text: '',
       moviesInfo: moviesInfo,
-      searchTitles: '',
+      errorMsg: "Sorry, that movie is not in our database"
+
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -43,10 +44,12 @@ class App extends React.Component {
         </div>
 
         <div className="movies-list">
-          <MoviesList
-            moviesInfo={this.state.moviesInfo}
-            text={this.state.text}
-          />
+          {this.state.moviesInfo.length > 0 ? (
+            <MoviesList
+              moviesInfo={this.state.moviesInfo}
+              text={this.state.text}
+            />
+          ) : <div className="errorMessage">{this.state.errorMsg}</div>}
         </div>
       </div>
     );
