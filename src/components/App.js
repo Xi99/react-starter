@@ -1,7 +1,10 @@
 import React from 'react';
 import MoviesList from './MovieList/MoviesList.jsx';
-import movies from '../movieInfo.js';
-import './styles.css'
+// import moviesInfo from '../../moviesInfo.js';
+import './styles.css';
+import Search from './Search/Search.jsx';
+
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -15,6 +18,10 @@ class App extends React.Component {
       <div className="container">
         <div className="header">
           <h1>MovieList</h1>
+        </div>
+
+        <div className="search-bar">
+          <Search />
         </div>
 
         <div className="movies-list">

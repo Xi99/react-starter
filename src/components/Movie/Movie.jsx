@@ -1,13 +1,13 @@
 import React from 'react';
-import './Movies.css'
+import './Movie.css'
 
 
-const Movies = ({ title }) => (
+const Movie = ({ title }) => (
     <div className="movie-list-entry">
-        <div className="media-body">
+        <div className="movie-body">
             <div className="movie-list-entry-title">{title} </div>
         </div>
     </div>
 );
 
-export default Movies;
+export default Movie;
