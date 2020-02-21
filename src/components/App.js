@@ -15,7 +15,7 @@ class App extends React.Component {
       moviesInfo: [],
       errorMsg: "Sorry, that movie is not in our database",
       newInput: '',
-      userList: []
+      watchedList: []
 
     };
 
@@ -23,6 +23,7 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleAddInput = this.handleAddInput.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
+    this.handleWatched = this.handleWatched.bind(this);
   };
 
   handleChange(e) {
@@ -43,6 +44,10 @@ class App extends React.Component {
     if (this.state.newInput.length > 2) {
       this.setState({ moviesInfo: [...this.state.moviesInfo, { title: this.state.newInput }] })
     }
+  }
+
+  handleWatched(i) {
+    this.setState({ watchedList: [...this.state.watchedList, this.state.moviesInfo[i]] })
   }
 
   render() {
@@ -71,6 +76,8 @@ class App extends React.Component {
             <MoviesList // TOFIX: figure out how to get error message to show up properly
               moviesInfo={this.state.moviesInfo}
               text={this.state.text}
+              watchedList={this.handleWatched}
+
             />
           ) : <div className="errorMessage">{this.state.errorMsg}</div>}
         </div>

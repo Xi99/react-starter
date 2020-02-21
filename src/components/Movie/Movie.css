@@ -1,11 +1,24 @@
 .movie-list-entry {
     border: 1px solid black;
     background-color: lightgray;
-    font-size: 20px;
+    font-size: 40px;
+    font-weight: bolda;
     padding: 20px;
     margin: 0rem 5rem;
     width: 50rem;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+    align-content: center;
+
+}
+
+.watched-div {
+    margin-left: 200px;
+}
+
+.watched-button {
+    background-color: red;
+    color: white;
+    font-size: 20px;
 }

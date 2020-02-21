@@ -1,12 +1,19 @@
 import React from 'react';
-import './Movie.css'
+import './Movie.css';
+import WatchedButton from '../Watched/WatchedButton.jsx';
 
 
-const Movie = ({ title }) => (
+const Movie = ({ title, watchedList }) => (
     <div className="movie-list-entry">
         <div className="movie-body">
-            <div className="movie-list-entry-title">{title} </div>
+            <div className="movie-list-entry-title">
+                {title}
+                <WatchedButton
+                    watchedList={watchedList}
+                />
+            </div>
         </div>
+
     </div>
 );
 
