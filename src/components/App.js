@@ -12,9 +12,10 @@ class App extends React.Component {
 
     this.state = {
       text: '',
-      moviesInfo: moviesInfo,
+      moviesInfo: [],
       errorMsg: "Sorry, that movie is not in our database",
-      newInput: ''
+      newInput: '',
+      userList: []
 
     };
 
@@ -66,8 +67,8 @@ class App extends React.Component {
         </div>
 
         <div className="movies-list">
-          {this.state.moviesInfo.length > 0 ? (
-            <MoviesList
+          {this.state.moviesInfo.length >= 0 ? (
+            <MoviesList // TOFIX: figure out how to get error message to show up properly
               moviesInfo={this.state.moviesInfo}
               text={this.state.text}
             />
