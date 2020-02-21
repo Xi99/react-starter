@@ -3,6 +3,7 @@ import MoviesList from './MovieList/MoviesList.jsx';
 import moviesInfo from '../moviesInfo.js';
 import './styles.css';
 import Search from './Search/Search.jsx';
+import AddMovie from './AddMovie/AddMovie.jsx';
 
 
 class App extends React.Component {
@@ -12,12 +13,15 @@ class App extends React.Component {
     this.state = {
       text: '',
       moviesInfo: moviesInfo,
-      errorMsg: "Sorry, that movie is not in our database"
+      errorMsg: "Sorry, that movie is not in our database",
+      newInput: ''
 
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleAddInput = this.handleAddInput.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
   };
 
   handleChange(e) {
@@ -25,15 +29,33 @@ class App extends React.Component {
 
   }
 
-  handleSubmit() {
+  handleSubmit() { // TOFIX: handle partial inputs and upper and lowercase 
     let filteredMovies = moviesInfo.filter(movie => movie.title === this.state.text)
     this.setState({ moviesInfo: filteredMovies })
   }
+
+  handleAddInput(e) {
+    this.setState({ newInput: e.target.value })
+  }
+
+  handleAdd() {
+    if (this.state.newInput.length > 2) {
+      this.setState({ moviesInfo: [...this.state.moviesInfo, { title: this.state.newInput }] })
+    }
+  }
+
   render() {
     return (
       <div className="container">
         <div className="header">
           <h1>MovieList</h1>
+        </div>
+
+        <div className="add-movie-bar">
+          <AddMovie
+            handleAddInput={this.handleAddInput}
+            handleAdd={this.handleAdd}
+          />
         </div>
 
         <div className="search-bar">
